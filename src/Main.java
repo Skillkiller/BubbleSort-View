@@ -1,19 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Random;
 
 public class Main extends JFrame {
 
-    public static Integer[] values;
-    public static Random r = new Random();
-    static JFrame myFrame;
-    static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-    static int i2;
+    private static Integer[] values;
+    private static Random r = new Random();
+    private static GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    private static int i2;
 
 
-    public Main(int width, int height) {
+    private Main(int width, int height) {
         setContentPane(new DrawPane());
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +39,7 @@ public class Main extends JFrame {
         for (int i = 0; i < values.length; i++) {
             values[i] = r.nextInt(height);
         }
-        myFrame = new Main(width, height);
+        JFrame myFrame = new Main(width, height);
         device.setFullScreenWindow(myFrame);
         Thread.sleep(1000);
         int temp;
